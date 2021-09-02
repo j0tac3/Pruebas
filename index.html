@@ -12,47 +12,51 @@
    <div id="app" class="body">
     <div class="text__editor">
         <div class="editor__header">
-            <img src="icons/cancel.svg" alt="" class="close__icon">
+            <img src="icons/cancel.svg" alt="Cerrar" class="close__icon">
             <h3 class="header__title">Editor</h3>
-            <nav class="header__menu">
-                <ul class="options__menu options__title" id="optionsTitle">
+            <nav class="header__menu" id="menu">
+                <ul class="options__menu options__title" id="">
                     <li class="option__item" id="h2">
-                        <img src="icons/subtitle.svg" alt="" class="icon">
+                        <img id="h2" src="icons/subtitle.svg" alt="Titulo uno" class="icon">
                     </li>
                     <li class="option__item" id="h3">
-                        <img src="icons/subtitle.svg" alt="" class="icon">
+                        <img id="h3" src="icons/subtitle.svg" alt="Titulo 2" class="icon">
                     </li>
                     <li class="option__item" id="h4">
-                        <img src="icons/subtitle.svg" alt="" class="icon">
+                        <img id="h4" src="icons/subtitle.svg" alt="Titulo 3" class="icon">
                     </li>
                 </ul>
-                <ul class="options__menu" id="optionsTitle">
+                <ul class="options__menu" id="">
                     <li class="option__item" id="bold">
-                        <img src="icons/bold.svg" alt="" class="icon">
+                        <img id="bold" src="icons/bold.svg" alt="" class="icon">
                     </li>
                     <li class="option__item" id="italic">
-                        <img src="icons/italic.svg" alt="" class="icon">
+                        <img id="italic" src="icons/italic.svg" alt="" class="icon">
                     </li>
                     <li class="option__item" id="underline">
-                        <img src="icons/underline.svg" alt="" class="icon">
+                        <img id="underline" src="icons/underline.svg" alt="" class="icon">
                     </li>
                     <li class="option__item" id="link">
-                        <img src="icons/link.svg" alt="" class="icon">
+                        <img id="link" src="icons/link.svg" alt="" class="icon">
                     </li>
                 </ul>
-                <ul class="options__menu" id="optionsTitle">
+                <ul class="options__menu" id="">
                     <li class="option__item" id="image">
-                        <img src="icons/image.svg" alt="" class="icon">
+                        <img id="image" src="icons/image.svg" alt="" class="icon">
                     </li>
                     <li class="option__item" id="video">
-                        <img src="icons/video.svg" alt="" class="icon">
+                        <img id="video" src="icons/video.svg" alt="" class="icon">
                     </li>
                 </ul>
             </nav>
         </div>
         <textarea   rows="5" class="editor__body"
                     placeholder="Escriba aqui el texto ..."
-                    id="editor__title"></textarea>
+                    id="editor__body"></textarea>
+        <div class="buttons">
+            <button class="btn__ver" id="preView">Ver</button>
+            <button class="btn__clear" id="clear">Limpiar</button>
+        </div>
         <div class="prev__container" id="prev__title">
             
         </div>
