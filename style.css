@@ -14,7 +14,7 @@
 .header__menu{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     box-sizing: border-box;
 }
 .options__menu{
@@ -58,12 +58,6 @@
     margin: .1rem 0;
     padding: 0 .2rem;
     box-sizing: border-box;
-}
-.options__menu{
-    border-right: 1px solid #7777;
-}
-.options__menu:last-child{
-    border-right: none;
 }
 .option__item{
     width: 2rem;
@@ -157,4 +151,13 @@
 .buttons{
     display: flex;
     justify-content: flex-end;
+}
+.list{
+    text-align: center;
+    border-right: 1px solid #7777;
+    padding: 0 .3rem;
+    margin: .2rem 0;
+}
+.list:last-child{
+    border-right: none;
 }
