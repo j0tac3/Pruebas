@@ -11,14 +11,14 @@ const textArea = document.getElementById("editor__body");
 let tagInicial = "";
 let tagFinal = "";
 
-function optionSelected(event) {
+async function optionSelected(event) {
     console.log(event.target);
-    let tagSelected = onGetOptionTag(event.target.id);
+    let tagSelected = await onGetOptionTag(event.target.id);
     addOptionSelected(tagSelected);
     textArea.focus();
 }
 
-function onGetOptionTag(elementID){
+async function onGetOptionTag(elementID){
     switch (elementID){
         case "h2":
         case "h3":
@@ -40,8 +40,7 @@ function onGetOptionTag(elementID){
             break;
         case "link":
             let linkValue = prompt("Inserte el link:");
-            let linkName = prompt("Inserte el nombre que se verá:");
-            tagInicial = `a href="${linkValue}">${linkName}`
+            tagInicial = `a href="${linkValue}"`
             tagFinal = "a";
             break;
         case "image":
