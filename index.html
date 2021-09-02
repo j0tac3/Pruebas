@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div id="app" class="body">
+    <div class="text__editor">
+        <div class="editor__header">
+            <img src="icons/cancel.svg" alt="" class="close__icon">
+            <h3 class="header__title">Editor</h3>
+            <nav class="header__menu">
+                <ul class="options__menu options__title" id="optionsTitle">
+                    <li class="option__item" id="h2">
+                        <img src="icons/subtitle.svg" alt="" class="icon">
+                    </li>
+                    <li class="option__item" id="h3">
+                        <img src="icons/subtitle.svg" alt="" class="icon">
+                    </li>
+                    <li class="option__item" id="h4">
+                        <img src="icons/subtitle.svg" alt="" class="icon">
+                    </li>
+                </ul>
+                <ul class="options__menu" id="optionsTitle">
+                    <li class="option__item" id="bold">
+                        <img src="icons/bold.svg" alt="" class="icon">
+                    </li>
+                    <li class="option__item" id="italic">
+                        <img src="icons/italic.svg" alt="" class="icon">
+                    </li>
+                    <li class="option__item" id="underline">
+                        <img src="icons/underline.svg" alt="" class="icon">
+                    </li>
+                    <li class="option__item" id="link">
+                        <img src="icons/link.svg" alt="" class="icon">
+                    </li>
+                </ul>
+                <ul class="options__menu" id="optionsTitle">
+                    <li class="option__item" id="image">
+                        <img src="icons/image.svg" alt="" class="icon">
+                    </li>
+                    <li class="option__item" id="video">
+                        <img src="icons/video.svg" alt="" class="icon">
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <textarea   rows="5" class="editor__body"
+                    placeholder="Escriba aqui el texto ..."
+                    id="editor__title"></textarea>
+        <div class="prev__container" id="prev__title">
+            
+        </div>
+    </div>
+
+    <!-- <script src="vue.js"></script> -->
+    <!-- <script src="main.js"></script> -->
+    <script src="actions.js"></script>
+</body>
+</html>

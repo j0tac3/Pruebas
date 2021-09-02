@@ -1,0 +1,105 @@
+.text__editor{
+    width: 95%;
+    max-width: 25rem;
+    margin: 1rem auto;
+
+    border: 1px ;
+    box-shadow: 0 0 20px -5px #7777;
+    border-radius: 3px;
+}
+.editor__header{
+    position: relative;
+}
+.header__menu{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.options__menu{
+    padding: 0;
+    margin: 0;
+}
+.header__title{
+    background-color: #777;
+    color: #ffff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    margin: 0;
+    padding: .5rem;
+}
+.icon{
+    width: 100%;
+    transition: filter .3s;
+}
+.close__icon{
+    width: 1rem;
+    position: absolute;
+    right: .5rem;
+    top: .7rem;
+    filter: invert(1);
+    transition: filter .3s;
+}
+.close__icon:hover{
+    cursor: pointer;
+    filter: invert(0);
+}
+.options__menu{
+    list-style: none;
+    display: flex;
+    margin: .1rem 0;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+}
+.options__menu{
+    border-right: 1px solid #7777;
+}
+.options__menu:last-child{
+    border-right: none;
+}
+.option__item{
+    width: 1.5rem;
+    padding: .3rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 3px;
+
+    transition: background-color .2s, filter .3s;
+}
+.option__item:hover{
+    cursor: pointer;
+    background-color: orange;
+}
+.option__item:hover .icon{
+    filter: invert(1);
+}
+.options__title .option__item:nth-child(2) .icon{
+    width: 80%;
+    padding-top: .16rem;
+}
+.options__title .option__item:last-child .icon{
+    width: 60%;
+    padding-top: .18rem;
+}
+.editor__body{
+    width: 100%;
+    box-sizing: border-box;
+    padding: .5rem;
+
+    resize: none;
+    border: none;
+    outline: none;
+
+    border-top: 1px solid #7777;
+}
+.editor__body::-webkit-scrollbar{
+    width: .5rem;
+}
+.editor__body::-webkit-scrollbar-track{
+    background-color: #7777;
+}
+.editor__body::-webkit-scrollbar-thumb{
+    background-color: #777;
+}
