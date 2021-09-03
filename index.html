@@ -50,7 +50,7 @@
                     <span>Media</span>
                     <ul class="options__menu" id="">
                         <li class="option__item" id="image">
-                            <img id="image" src="icons/image.svg" alt="" class="icon">
+                            <img for="fileImage" id="image" src="icons/image.svg" alt="" class="icon">
                         </li>
                         <li class="option__item" id="video">
                             <img id="video" src="icons/video.svg" alt="" class="icon">
@@ -59,6 +59,8 @@
                 </div>
             </nav>
         </div>
+        <label for="fileImage" id="filelabel" hidden></label>
+        <input type="file" id="fileImage" hidden accept="video/*, image/*">
         <textarea   rows="5" class="editor__body"
                     placeholder="Escriba aqui el texto ..."
                     id="editor__body"></textarea>

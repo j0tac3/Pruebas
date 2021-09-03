@@ -5,7 +5,7 @@
     display: grid;
 
     border: 1px ;
-    box-shadow: 0 0 20px -5px #7777;
+    /* box-shadow: 0 0 20px -5px #7777; */
     border-radius: 3px;
 }
 .editor__header{
@@ -16,6 +16,8 @@
     display: flex;
     justify-content: space-evenly;
     box-sizing: border-box;
+    border-right: 1px solid #7777;
+    border-left: 1px solid #7777;
 }
 .options__menu{
     padding: 0;
@@ -96,7 +98,10 @@
     border: none;
     outline: none;
 
-    border-top: 1px solid #7777;
+    /* border-top: 1px solid #7777; */
+    box-shadow: 0 0 20px -5px #7777;
+    color: #777;
+    caret-color: #777;
 }
 .editor__body::-webkit-scrollbar{
     width: .5rem;
@@ -160,4 +165,8 @@
 }
 .list:last-child{
     border-right: none;
+}
+
+input[type="file"]{
+    color: transparent;
 }
