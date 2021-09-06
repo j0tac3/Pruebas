@@ -22,23 +22,33 @@ function onChangeInput(){
     if (inputvideo.value){
         tagInicial = `img src="${inputvideo.files[0].name}"`;
         tagFinal = "img";
-        addOptionSelected();
+        
+        let start = textArea.selectionStart;
+        let end = textArea.selectionEnd;
+        let originalTextInitial = textArea.value.substring(0, start);
+        let originalTextEnd = textArea.value.substring(end);
+        let formatedText = `${originalTextInitial}<${tagInicial}>${originalTextEnd}`;
+        textArea.value = formatedText;
+        textArea.setSelectionRange( start + 2 + tagInicial.length, end + 2 + tagFinal.length, "forwawd");
         textArea.focus();
 
         let file = inputvideo.files[0];
-        //onChargeImageFormFile(file);
         files.push(file);
     }
 }
 
 function onChargeImageFormFile(file){
+    let img = document.createElement("IMG");
+
     let reader = new FileReader();
-        reader.onload = function(e){
-            let img = document.createElement("IMG");
-            img.src = e.target.result;
-            prevTitle.appendChild(img);
-        }
-    reader.readAsDataURL(file);
+    reader.addEventListener("load", function() {
+        img.src = reader.result;
+        img.classList.add("adventureImage");
+    }, false);
+    if (file){
+        reader.readAsDataURL(file);
+        prevTitle.appendChild(img);
+    }
 }
 
 async function optionSelected(event) {
@@ -70,11 +80,12 @@ async function onGetOptionTag(elementID){
             case "link":
                 let linkValue = prompt("Inserte el link:");
                 if (linkValue){
-                    tagInicial = `a href="https://${linkValue}" target="_blank`
+                    tagInicial = `a href="https://${linkValue}" target="_blank"`
                     tagFinal = "a";
                 }
                 break;
             case "image":
+                tagInicial = "img"
                 filelabel.click();
                 break;
             case "video":
@@ -91,7 +102,7 @@ async function onGetMediaFile(){
 }
 
 function addOptionSelected(){
-    if (tagInicial && tagFinal){
+    if (tagInicial && tagFinal && tagInicial !== "img"){
         let start = textArea.selectionStart;
         let end = textArea.selectionEnd;
         let textSelected = textArea.value.substring(start, end);
@@ -100,9 +111,6 @@ function addOptionSelected(){
         let formatedText = `${originalTextInitial}<${tagInicial}>${textSelected}</${tagFinal}>${originalTextEnd}`;
         textArea.value = formatedText;
         textArea.setSelectionRange( start + 2 + tagInicial.length, end + 2 + tagFinal.length, "forwawd");
-
-        tagFinal = "";
-        tagInicial = "";
     }
 }
 
@@ -121,16 +129,46 @@ function onPrevAdventure(){
         let elementToAdd;
         let elementTag;
         let elementValue;
-        if (element[0] === "<" && element.indexOf("href") > 0){
-            elementTag = "a";
-            elementTag.href = element.substring(element.indexOf("f=") + 3, element.indexOf('">'));
-            elementValue = element[0] === "<" ? element.substring(element.indexOf(">") + 1, element.lastIndexOf("</") - 1) : element;
-    } else {
-            elementTag = element[0] === "<" ? element.substring(element.indexOf("<") + 1, element.indexOf(">")) : "p";
-            elementValue = element[0] === "<" ? element.substring(element.indexOf(">") + 1, element.lastIndexOf("</") - 1) : element;
+        if(element[0] === "<" && element[1] == "i" && element[2] === "m" && element[3] === "g" && element.indexOf('src="') > 0){
+            let imageName = element.substring(element.indexOf('src="') + 5, element.indexOf(">") - 1);
+            let fileSelected = files.filter( image => image.name === imageName)[0];
+            if (fileSelected)
+                onChargeImageFormFile(fileSelected);
+        } else {
+            if (element[0] === "<" && element[1] === "h"){
+                elementTag = element.substring(1, 3);
+                elementToAdd = document.createElement(elementTag);
+                elementToAdd.classList.add("title");
+                elementValue = element.substring(element.indexOf(">") + 1, element.lastIndexOf("</"));
+                elementToAdd.innerHTML = elementValue;
+            } else {
+                elementToAdd = document.createElement("P");
+                if (element.includes('"_blank"><img src="')){
+                    elementLink = document.createElement("A");
+                    elementLink.href = element.substring(element.indexOf("href=") + 6, element.indexOf(" target") - 1);
+                    elementLink.target = "_blank";
+                    elementLink.classList.add("adventureImage");
+
+                    let imageName = element.substring(element.indexOf('src="') + 5, element.lastIndexOf('">'));
+                    let fileSelected = files.filter( image => image.name === imageName)[0];
+                    let img = document.createElement("IMG");
+                    let reader = new FileReader();
+                    reader.addEventListener("load", function() {
+                        img.src = reader.result;
+                    }, false);
+                    if (fileSelected){
+                        reader.readAsDataURL(fileSelected);
+                        elementLink.appendChild(img);
+                    }
+                    elementToAdd.appendChild(elementLink);
+                }
+                else {
+                    elementValue = element;
+                    elementToAdd.innerHTML = elementValue;
+                }
+                elementValue = element;
+            }
+            prevTitle.appendChild(elementToAdd);
         }
-        elementToAdd = document.createElement(elementTag);
-        elementToAdd.innerHTML = elementValue;
-        prevTitle.appendChild(elementToAdd);
     }
 }

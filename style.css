@@ -1,3 +1,6 @@
+img{
+    width: 100%;
+}
 .text__editor{
     width: 95%;
     max-width: 25rem;
@@ -169,4 +172,21 @@
 
 input[type="file"]{
     color: transparent;
+}
+.prev__container{
+    margin: 0 auto;
+    width: 95%;
+    max-width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.adventureImage{
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto;
+}
+.title{
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
